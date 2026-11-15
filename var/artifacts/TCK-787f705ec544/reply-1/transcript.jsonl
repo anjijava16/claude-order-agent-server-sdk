@@ -1,0 +1,3 @@
+{"t": 0.538, "kind": "init", "model": "claude-sonnet-5-5"}
+{"t": 2.838, "kind": "tool_use", "name": "StructuredOutput", "input": {"subject": "Your order ORD-1001 is on its way", "body": "Hi there,\n\nThanks for reaching out! Good news: order ORD-1001 has shipped and is in transit with UPS.\n\nTracking number: 1Z999AA10123456784\nEstimated delivery: 2026-11-17\nShipping to: 12 Walnut St, Philadelphia, PA 19106\nItems: 2 Ceramic mugs and 1 bag of Single-origin beans (1kg)\n\nI didn't need to make any changes to your order. If you have any other questions, just let us know.\n\nWarm regards,\nOrder Support"}}
+{"t": 3.653, "kind": "result", "subtype": "success", "is_error": false, "cost": 0.0065351, "turns": 2, "terminal_reason": "completed"}

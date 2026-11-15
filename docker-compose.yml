@@ -1,0 +1,17 @@
+services:
+  order-agent:
+    build: .
+    ports: ["8000:8000"]
+    env_file: .env
+    environment:
+      ORDER_AGENT_SEED: "1"
+    volumes:
+      - order-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /home/app/.claude
+    restart: unless-stopped
+
+volumes:
+  order-data:

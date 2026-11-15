@@ -1,0 +1,6 @@
+{"t": 0.533, "kind": "init", "model": "claude-sonnet-5-5"}
+{"t": 2.234, "kind": "tool_use", "name": "mcp__orders__get_order", "input": {"order_id": "ORD-1002"}}
+{"t": 3.214, "kind": "text", "text": "Status is paid, not shipped. Cancel."}
+{"t": 3.612, "kind": "tool_use", "name": "mcp__orders__cancel_order", "input": {"order_id": "ORD-1002", "reason": "Customer requested cancellation; order not yet shipped"}}
+{"t": 5.137, "kind": "tool_use", "name": "StructuredOutput", "input": {"outcome": "resolved", "explanation": "ORD-1002 was in paid status and had not shipped. I cancelled it, and the tool confirmed a full refund of 8900 cents ($89.00).", "actions_claimed": ["order_cancelled"]}}
+{"t": 6.122, "kind": "result", "subtype": "success", "is_error": false, "cost": 0.0110399, "turns": 4, "terminal_reason": "completed"}

@@ -1,0 +1,220 @@
+{
+  "ticket": {
+    "schema_version": "1",
+    "ticket_id": "TCK-457b7a9c6b4e",
+    "customer_id": "CUST-ALICE",
+    "message": "Please cancel ORD-1002",
+    "phase": "completed",
+    "limits": {
+      "max_cost_usd": 0.5,
+      "max_elapsed_seconds": 180
+    },
+    "created_at": "2026-11-15T04:55:35.543350Z",
+    "started_at": "2026-11-15T04:55:35.550277Z",
+    "estimated_cost_usd": 0.017666,
+    "cost_accounting_complete": true,
+    "pending_call": null,
+    "triage": {
+      "intent": "cancel_order",
+      "order_id": "ORD-1002",
+      "summary": "Customer requests cancellation of order ORD-1002.",
+      "urgency": "normal",
+      "requested_refund_cents": null,
+      "damaged_skus": [],
+      "new_address": null
+    },
+    "resolution": {
+      "outcome": "resolved",
+      "actions_claimed": [
+        "order_cancelled"
+      ],
+      "explanation": "ORD-1002 was in paid status and had not shipped. I cancelled it, and the tool confirmed a full refund of 8900 cents ($89.00)."
+    },
+    "reply": {
+      "subject": "Your order ORD-1002 has been cancelled",
+      "body": "Hi there,\n\nThanks for reaching out. Your order ORD-1002 hadn't shipped yet, so we've cancelled it as you asked. A full refund of $89.00 has been issued.\n\nIf there's anything else we can help with, just reply and let us know.\n\nWarm regards,\nOrder Support"
+    },
+    "approval_id": null,
+    "stages": [
+      {
+        "stage": "triage",
+        "attempt": 1,
+        "subtype": "success",
+        "is_error": false,
+        "num_turns": 2,
+        "cost_usd": 0.0027526,
+        "duration_ms": 1822,
+        "session_id": "07b00615-eba7-4467-96e4-c95b8e8b5b34",
+        "permission_denials": 0,
+        "started_at": "2026-11-15T04:55:35.553094Z",
+        "finished_at": "2026-11-15T04:55:39.022995Z"
+      },
+      {
+        "stage": "resolve",
+        "attempt": 1,
+        "subtype": "success",
+        "is_error": false,
+        "num_turns": 4,
+        "cost_usd": 0.0110399,
+        "duration_ms": 4647,
+        "session_id": "d2a9b80e-62b4-4d6e-b128-2dea4c46a961",
+        "permission_denials": 0,
+        "started_at": "2026-11-15T04:55:39.025995Z",
+        "finished_at": "2026-11-15T04:55:45.150317Z"
+      },
+      {
+        "stage": "reply",
+        "attempt": 1,
+        "subtype": "success",
+        "is_error": false,
+        "num_turns": 2,
+        "cost_usd": 0.0038729999999999997,
+        "duration_ms": 2425,
+        "session_id": "2200471b-44f8-4411-93de-4a87627d4645",
+        "permission_denials": 0,
+        "started_at": "2026-11-15T04:55:45.153372Z",
+        "finished_at": "2026-11-15T04:55:48.913349Z"
+      }
+    ],
+    "stop_reason": "resolved",
+    "notes": []
+  },
+  "ledger": [
+    {
+      "action": "order_cancelled",
+      "order_id": "ORD-1002",
+      "amount_cents": 8900,
+      "detail_json": "{\"order_id\": \"ORD-1002\", \"status\": \"cancelled\", \"refunded_cents\": 8900, \"reason\": \"Customer requested cancellation; order not yet shipped\", \"idempotency_key\": \"TCK-457b7a9c6b4e:cancel:ORD-1002\"}",
+      "created_at": "2026-11-15T04:55:42.662422+00:00",
+      "detail": {
+        "order_id": "ORD-1002",
+        "status": "cancelled",
+        "refunded_cents": 8900,
+        "reason": "Customer requested cancellation; order not yet shipped",
+        "idempotency_key": "TCK-457b7a9c6b4e:cancel:ORD-1002"
+      }
+    }
+  ],
+  "audit": [
+    {
+      "event": "tool_result",
+      "detail": {
+        "stage": "triage",
+        "tool": "StructuredOutput",
+        "id": "toolu_01U3sZrWxgxCSWkZZioARAiQ",
+        "response": "Structured output provided successfully"
+      },
+      "at": "2026-11-15T04:55:38.275421+00:00"
+    },
+    {
+      "event": "stage_finished",
+      "detail": {
+        "stage": "triage",
+        "attempt": 1,
+        "ok": true,
+        "subtype": "success",
+        "error": null,
+        "cost_usd": 0.0027526
+      },
+      "at": "2026-11-15T04:55:39.023179+00:00"
+    },
+    {
+      "event": "eligibility",
+      "detail": {
+        "tools": [
+          "get_order",
+          "get_shipment",
+          "check_inventory",
+          "escalate_to_human",
+          "cancel_order"
+        ],
+        "notes": []
+      },
+      "at": "2026-11-15T04:55:39.024537+00:00"
+    },
+    {
+      "event": "tool_requested",
+      "detail": {
+        "stage": "resolve",
+        "tool": "mcp__orders__get_order",
+        "input": "{\"order_id\": \"ORD-1002\"}",
+        "id": "toolu_01XQ84hF9LQAmxS7UVRSND7x"
+      },
+      "at": "2026-11-15T04:55:41.263303+00:00"
+    },
+    {
+      "event": "tool_result",
+      "detail": {
+        "stage": "resolve",
+        "tool": "mcp__orders__get_order",
+        "id": "toolu_01XQ84hF9LQAmxS7UVRSND7x",
+        "response": "[{\"type\": \"text\", \"text\": \"{\\\"order_id\\\": \\\"ORD-1002\\\", \\\"customer_id\\\": \\\"CUST-ALICE\\\", \\\"status\\\": \\\"paid\\\", \\\"lines\\\": [{\\\"sku\\\": \\\"KETTLE-02\\\", \\\"name\\\": \\\"Gooseneck kettle\\\", \\\"qty\\\": 1, \\\"unit_price_cents\\\": 8900}], \\\"total_cents\\\": 8900, \\\"refunded_cents\\\": 0, \\\"shipping_address\\\": \\\"12 Walnut St, Philadelphia, PA 19106\\\", \\\"created_at\\\": \\\"2026-11-13T09:30:00Z\\\", \\\"refundable_cents\\\": 8900}\"}]"
+      },
+      "at": "2026-11-15T04:55:41.310119+00:00"
+    },
+    {
+      "event": "tool_requested",
+      "detail": {
+        "stage": "resolve",
+        "tool": "mcp__orders__cancel_order",
+        "input": "{\"order_id\": \"ORD-1002\", \"reason\": \"Customer requested cancellation; order not yet shipped\"}",
+        "id": "toolu_01QaVmjJvzRNxtHXuz6jq2ah"
+      },
+      "at": "2026-11-15T04:55:42.647347+00:00"
+    },
+    {
+      "event": "tool_result",
+      "detail": {
+        "stage": "resolve",
+        "tool": "mcp__orders__cancel_order",
+        "id": "toolu_01QaVmjJvzRNxtHXuz6jq2ah",
+        "response": "[{\"type\": \"text\", \"text\": \"{\\\"order_id\\\": \\\"ORD-1002\\\", \\\"status\\\": \\\"cancelled\\\", \\\"refunded_cents\\\": 8900, \\\"reason\\\": \\\"Customer requested cancellation; order not yet shipped\\\", \\\"idempotency_key\\\": \\\"TCK-457b7a9c6b4e:cancel:ORD-1002\\\"}\"}]"
+      },
+      "at": "2026-11-15T04:55:42.667855+00:00"
+    },
+    {
+      "event": "tool_result",
+      "detail": {
+        "stage": "resolve",
+        "tool": "StructuredOutput",
+        "id": "toolu_01NBawgQ5heQcEpbTS71Z9u8",
+        "response": "Structured output provided successfully"
+      },
+      "at": "2026-11-15T04:55:44.187537+00:00"
+    },
+    {
+      "event": "stage_finished",
+      "detail": {
+        "stage": "resolve",
+        "attempt": 1,
+        "ok": true,
+        "subtype": "success",
+        "error": null,
+        "cost_usd": 0.0110399
+      },
+      "at": "2026-11-15T04:55:45.150477+00:00"
+    },
+    {
+      "event": "tool_result",
+      "detail": {
+        "stage": "reply",
+        "tool": "StructuredOutput",
+        "id": "toolu_01NPvn8nkRDGu68Yae5DKUNm",
+        "response": "Structured output provided successfully"
+      },
+      "at": "2026-11-15T04:55:48.078881+00:00"
+    },
+    {
+      "event": "stage_finished",
+      "detail": {
+        "stage": "reply",
+        "attempt": 1,
+        "ok": true,
+        "subtype": "success",
+        "error": null,
+        "cost_usd": 0.0038729999999999997
+      },
+      "at": "2026-11-15T04:55:48.913466+00:00"
+    }
+  ]
+}

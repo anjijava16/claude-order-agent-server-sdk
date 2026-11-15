@@ -1,0 +1,8 @@
+{
+  "model_requested": "sonnet",
+  "model_resolved": "claude-sonnet-5-5",
+  "subtype": "success",
+  "result": "ORDER_AGENT_READY",
+  "cost_usd": 0.0009139999999999999,
+  "ok": true
+}

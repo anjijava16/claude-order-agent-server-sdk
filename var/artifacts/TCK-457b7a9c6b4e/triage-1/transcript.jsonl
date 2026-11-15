@@ -1,0 +1,3 @@
+{"t": 0.932, "kind": "init", "model": "claude-sonnet-5-5"}
+{"t": 2.677, "kind": "tool_use", "name": "StructuredOutput", "input": {"intent": "cancel_order", "order_id": "ORD-1002", "summary": "Customer requests cancellation of order ORD-1002.", "urgency": "normal"}}
+{"t": 3.469, "kind": "result", "subtype": "success", "is_error": false, "cost": 0.0027526, "turns": 2, "terminal_reason": "completed"}

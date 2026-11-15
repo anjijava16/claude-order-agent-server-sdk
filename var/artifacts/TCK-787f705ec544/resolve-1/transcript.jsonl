@@ -1,0 +1,5 @@
+{"t": 0.538, "kind": "init", "model": "claude-sonnet-5-5"}
+{"t": 1.911, "kind": "tool_use", "name": "mcp__orders__get_order", "input": {"order_id": "ORD-1001"}}
+{"t": 2.359, "kind": "tool_use", "name": "mcp__orders__get_shipment", "input": {"order_id": "ORD-1001"}}
+{"t": 4.111, "kind": "tool_use", "name": "StructuredOutput", "input": {"outcome": "no_action_needed", "explanation": "Order ORD-1001 has shipped and is in transit with UPS, tracking number 1Z999AA10123456784. The estimated delivery date is 2026-11-17. It contains 2 Ceramic mugs and 1 bag of Single-origin beans (1kg), and it ships to 12 Walnut St, Philadelphia, PA 19106. I made no changes to the order.", "actions_claimed": []}}
+{"t": 4.958, "kind": "result", "subtype": "success", "is_error": false, "cost": 0.0105098, "turns": 4, "terminal_reason": "completed"}

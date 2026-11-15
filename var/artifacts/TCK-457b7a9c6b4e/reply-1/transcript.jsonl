@@ -1,0 +1,3 @@
+{"t": 0.523, "kind": "init", "model": "claude-sonnet-5-5"}
+{"t": 2.904, "kind": "tool_use", "name": "StructuredOutput", "input": {"subject": "Your order ORD-1002 has been cancelled", "body": "Hi there,\n\nThanks for reaching out. Your order ORD-1002 hadn't shipped yet, so we've cancelled it as you asked. A full refund of $89.00 has been issued.\n\nIf there's anything else we can help with, just reply and let us know.\n\nWarm regards,\nOrder Support"}}
+{"t": 3.759, "kind": "result", "subtype": "success", "is_error": false, "cost": 0.0038729999999999997, "turns": 2, "terminal_reason": "completed"}

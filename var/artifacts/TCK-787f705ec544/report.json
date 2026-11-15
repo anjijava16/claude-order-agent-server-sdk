@@ -1,0 +1,202 @@
+{
+  "ticket": {
+    "schema_version": "1",
+    "ticket_id": "TCK-787f705ec544",
+    "customer_id": "CUST-ALICE",
+    "message": "Where is ORD-1001?",
+    "phase": "completed",
+    "limits": {
+      "max_cost_usd": 0.5,
+      "max_elapsed_seconds": 180
+    },
+    "created_at": "2026-11-15T04:54:01.380664Z",
+    "started_at": "2026-11-15T04:54:01.383122Z",
+    "estimated_cost_usd": 0.022521,
+    "cost_accounting_complete": true,
+    "pending_call": null,
+    "triage": {
+      "intent": "order_status",
+      "order_id": "ORD-1001",
+      "summary": "Customer asks for the current status/location of order ORD-1001.",
+      "urgency": "normal",
+      "requested_refund_cents": null,
+      "damaged_skus": [],
+      "new_address": null
+    },
+    "resolution": {
+      "outcome": "no_action_needed",
+      "actions_claimed": [],
+      "explanation": "Order ORD-1001 has shipped and is in transit with UPS, tracking number 1Z999AA10123456784. The estimated delivery date is 2026-11-17. It contains 2 Ceramic mugs and 1 bag of Single-origin beans (1kg), and it ships to 12 Walnut St, Philadelphia, PA 19106. I made no changes to the order."
+    },
+    "reply": {
+      "subject": "Your order ORD-1001 is on its way",
+      "body": "Hi there,\n\nThanks for reaching out! Good news: order ORD-1001 has shipped and is in transit with UPS.\n\nTracking number: 1Z999AA10123456784\nEstimated delivery: 2026-11-17\nShipping to: 12 Walnut St, Philadelphia, PA 19106\nItems: 2 Ceramic mugs and 1 bag of Single-origin beans (1kg)\n\nI didn't need to make any changes to your order. If you have any other questions, just let us know.\n\nWarm regards,\nOrder Support"
+    },
+    "approval_id": null,
+    "stages": [
+      {
+        "stage": "triage",
+        "attempt": 1,
+        "subtype": "success",
+        "is_error": false,
+        "num_turns": 2,
+        "cost_usd": 0.005475700000000001,
+        "duration_ms": 2022,
+        "session_id": "9ebb34c4-1f0b-4ad4-8279-331c54e702c5",
+        "permission_denials": 0,
+        "started_at": "2026-11-15T04:54:01.383554Z",
+        "finished_at": "2026-11-15T04:54:05.306371Z"
+      },
+      {
+        "stage": "resolve",
+        "attempt": 1,
+        "subtype": "success",
+        "is_error": false,
+        "num_turns": 4,
+        "cost_usd": 0.0105098,
+        "duration_ms": 3615,
+        "session_id": "ba20b057-867d-46f4-af92-0186da433f03",
+        "permission_denials": 0,
+        "started_at": "2026-11-15T04:54:05.308324Z",
+        "finished_at": "2026-11-15T04:54:10.267225Z"
+      },
+      {
+        "stage": "reply",
+        "attempt": 1,
+        "subtype": "success",
+        "is_error": false,
+        "num_turns": 2,
+        "cost_usd": 0.0065351,
+        "duration_ms": 2346,
+        "session_id": "37b594fd-8df0-45e2-9cf9-969e741c6548",
+        "permission_denials": 0,
+        "started_at": "2026-11-15T04:54:10.268882Z",
+        "finished_at": "2026-11-15T04:54:13.922317Z"
+      }
+    ],
+    "stop_reason": "resolved",
+    "notes": []
+  },
+  "ledger": [],
+  "audit": [
+    {
+      "event": "tool_result",
+      "detail": {
+        "stage": "triage",
+        "tool": "StructuredOutput",
+        "id": "toolu_01LfSqoNeoXfx5UWSjyXGDbr",
+        "response": "Structured output provided successfully"
+      },
+      "at": "2026-11-15T04:54:04.506797+00:00"
+    },
+    {
+      "event": "stage_finished",
+      "detail": {
+        "stage": "triage",
+        "attempt": 1,
+        "ok": true,
+        "subtype": "success",
+        "error": null,
+        "cost_usd": 0.005475700000000001
+      },
+      "at": "2026-11-15T04:54:05.306469+00:00"
+    },
+    {
+      "event": "eligibility",
+      "detail": {
+        "tools": [
+          "get_order",
+          "get_shipment",
+          "check_inventory",
+          "escalate_to_human"
+        ],
+        "notes": []
+      },
+      "at": "2026-11-15T04:54:05.307433+00:00"
+    },
+    {
+      "event": "tool_requested",
+      "detail": {
+        "stage": "resolve",
+        "tool": "mcp__orders__get_order",
+        "input": "{\"order_id\": \"ORD-1001\"}",
+        "id": "toolu_01GQz88d9jZnxsCxPwAK9Ayu"
+      },
+      "at": "2026-11-15T04:54:07.224555+00:00"
+    },
+    {
+      "event": "tool_result",
+      "detail": {
+        "stage": "resolve",
+        "tool": "mcp__orders__get_order",
+        "id": "toolu_01GQz88d9jZnxsCxPwAK9Ayu",
+        "response": "[{\"type\": \"text\", \"text\": \"{\\\"order_id\\\": \\\"ORD-1001\\\", \\\"customer_id\\\": \\\"CUST-ALICE\\\", \\\"status\\\": \\\"shipped\\\", \\\"lines\\\": [{\\\"sku\\\": \\\"MUG-01\\\", \\\"name\\\": \\\"Ceramic mug\\\", \\\"qty\\\": 2, \\\"unit_price_cents\\\": 1800}, {\\\"sku\\\": \\\"BEANS-04\\\", \\\"name\\\": \\\"Single-origin beans 1kg\\\", \\\"qty\\\": 1, \\\"unit_price_cents\\\": 3200}], \\\"total_cents\\\": 6800, \\\"refunded_cents\\\": 0, \\\"shipping_address\\\": \\\"12 Walnut St, Philadelphia, PA 19106\\\", \\\"created_at\\\": \\\"2026-11-09T14:02:00Z\\\", \\\"refundable_cents\\\": 6800}\"}]"
+      },
+      "at": "2026-11-15T04:54:07.239404+00:00"
+    },
+    {
+      "event": "tool_requested",
+      "detail": {
+        "stage": "resolve",
+        "tool": "mcp__orders__get_shipment",
+        "input": "{\"order_id\": \"ORD-1001\"}",
+        "id": "toolu_01D8hxUk5peEFGHyCKx7tKm5"
+      },
+      "at": "2026-11-15T04:54:07.670593+00:00"
+    },
+    {
+      "event": "tool_result",
+      "detail": {
+        "stage": "resolve",
+        "tool": "mcp__orders__get_shipment",
+        "id": "toolu_01D8hxUk5peEFGHyCKx7tKm5",
+        "response": "[{\"type\": \"text\", \"text\": \"{\\\"order_id\\\": \\\"ORD-1001\\\", \\\"carrier\\\": \\\"UPS\\\", \\\"tracking_number\\\": \\\"1Z999AA10123456784\\\", \\\"status\\\": \\\"in_transit\\\", \\\"eta\\\": \\\"2026-11-17\\\"}\"}]"
+      },
+      "at": "2026-11-15T04:54:07.690544+00:00"
+    },
+    {
+      "event": "tool_result",
+      "detail": {
+        "stage": "resolve",
+        "tool": "StructuredOutput",
+        "id": "toolu_01TtwQyarjgccEpNnuKbJvQy",
+        "response": "Structured output provided successfully"
+      },
+      "at": "2026-11-15T04:54:09.436248+00:00"
+    },
+    {
+      "event": "stage_finished",
+      "detail": {
+        "stage": "resolve",
+        "attempt": 1,
+        "ok": true,
+        "subtype": "success",
+        "error": null,
+        "cost_usd": 0.0105098
+      },
+      "at": "2026-11-15T04:54:10.267344+00:00"
+    },
+    {
+      "event": "tool_result",
+      "detail": {
+        "stage": "reply",
+        "tool": "StructuredOutput",
+        "id": "toolu_014MGrTkqpxH71cHAPy23rK3",
+        "response": "Structured output provided successfully"
+      },
+      "at": "2026-11-15T04:54:13.131164+00:00"
+    },
+    {
+      "event": "stage_finished",
+      "detail": {
+        "stage": "reply",
+        "attempt": 1,
+        "ok": true,
+        "subtype": "success",
+        "error": null,
+        "cost_usd": 0.0065351
+      },
+      "at": "2026-11-15T04:54:13.922425+00:00"
+    }
+  ]
+}
